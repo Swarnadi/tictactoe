@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(248, 207, 215);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 50px;
+    text-shadow: 1px 1px 1px rgb(38, 38, 38);
+}
+
+.container {
+    width: 550px;
+    padding: 25px;
+    border-radius: 10px;
+    background: rgb(216, 201, 201);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 black;
+    margin-top: 10px;
+}
+
+.container .winning_number {
+    display: flex;
+    box-shadow: 0 0px 15px 0 black;
+    border-radius: 7px;
+}
+
+.winning_number div {
+    width: 50%;
+    padding: 15px 0;
+    background: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Gemunu Libra', sans-serif;
+}
+
+.winning_number span {
+    margin: 0 5px;
+}
+
+.winning_number .O_wins {
+    border-radius: 7px 0 0 7px;
+    background: rgb(252, 132, 132);
+}
+
+.winning_number .X_wins {
+    border-radius: 0 7px 7px 0;
+    background: rgb(62, 61, 61);
+}
+
+.container .starting_page,
+.container .winner_page {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgb(62, 61, 61);
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Gemunu Libra', sans-serif;
+    font-size: 30px;
+}
+
+.starting_page h4 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.starting_page .button {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.button button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px 0 rgb(62, 61, 61);
+    transition: 0.5s;
+}
+
+.button button:first-child {
+    background: rgb(61, 61, 61);
+}
+
+.button button:last-child {
+    background: rgb(252, 132, 132);
+}
+
+.button button:hover {
+    transform: scale(0.90);
+}
+
+.container .main_page {
+    margin-top: 30px;
+    display: none;
+}
+
+.container .main_page .board {
+    padding: 25px;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 10px;
+    background: rgb(233, 221, 221);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 25px 0 black;
+    position: relative;
+    overflow: hidden;
+}
+
+.container .main_page .board .timer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background: rgb(62, 61, 61);
+    animation: animate 4s linear forwards;
+}
+
+@keyframes animate {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.container .main_page .board .turn_btn {
+    display: flex;
+    height: 60px;
+    width: 310px;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: 0 0 15px rgb(36, 34, 34);
+    position: relative;
+}
+
+.container .main_page .board .turn_btn button {
+    height: 100%;
+    width: 50%;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgb(252, 132, 132);
+    box-shadow: 1px 1px 1px grey;
+}
+
+.container .main_page .board .turn_btn button.O_turn {
+    left: 155px;
+    z-index: 3;
+    color: black;
+}
+
+.container .main_page .board .turn_btn .showChange {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    border-radius: 7px;
+    background: rgb(62, 61, 61);
+    z-index: 1;
+    transition: 0.2s;
+}
+
+.board .btns {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.board .btns .btn {
+    width: calc(500px / 3 - 25px);
+    height: calc(500px / 3 - 25px);
+    border-radius: 10px;
+    cursor: pointer;
+    background: grey;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 0 8px rgb(101, 100, 100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: bold;
+    transition: 0.2s;
+    color: white;
+}
+
+.board .btns.x .btn:hover::before {
+    content: 'X';
+}
+
+.board .btns.x .btn:hover {
+    background: rgb(62, 61, 61);
+    color: white;
+}
+
+.board .btns.o .btn:hover::before {
+    content: 'O';
+}
+
+.board .btns.o .btn:hover {
+    background: rgb(195, 145, 145);
+    color: white;
+}
+
+.container .winner_page {
+    display: none;
+}
+
+.winner_page h2 {
+    font-size: 38px;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-align: center;
+}
+
+.winner_page .winnerText {
+    font-size: 50px;
+    color: rgb(62, 61, 61);
+}
+
+.winner_page .button {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.winner_page .button .playAgainBtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px 0 black;
+    transition: 0.5s;
+    background: rgb(62, 61, 61);
+}

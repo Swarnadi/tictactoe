@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="title">Tic Tac Toe</h1>
+    <div class="container">
+        <div class="winning_number">
+            <div class="O_wins">'O' Wins: <span id="o_wins_count">0</span> times</div>
+            <div class="X_wins">'X' Wins: <span id="x_wins_count">0</span> times</div>
+        </div>
+        <div class="starting_page">
+            <h4>Who will move first?</h4>
+            <div class="button">
+                <button id="playerX" class="choose">Player (X)</button>
+                <button id="playerO" class="choose">Player (O)</button>
+            </div>
+        </div>
+        <div class="main_page">
+            <div class="board">
+                <div class="timer"></div>
+                <div class="turn_btn">
+                    <button class="X_turn">X Turn</button>
+                    <button class="O_turn">O Turn</button>
+                    <div class="showChange"></div>
+                </div>
+                <div class="btns">
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="winner_page">
+            <h2 class="winnerName">Player <span class="winnerText">X</span> Won the Game</h2>
+            <div class="button">
+                <button class="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
